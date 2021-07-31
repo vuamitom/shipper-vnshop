@@ -57,6 +57,14 @@
                   document.getElementById("address").innerHTML = item[6];
                   document.getElementById("number_plate").innerHTML = item[7];
                   document.getElementById("image").src = item[8];
+                  document.getElementById("company_address").innerHTML =
+                    "Địa chỉ: " + item[9];
+                  document.getElementById("shipping_area").innerHTML = item[10]
+                    ? item[10]
+                    : "";
+                  document.getElementById("from_address").innerHTML = item[11]
+                    ? item[11]
+                    : "";
                 }
               }
             });
@@ -77,9 +85,9 @@
           <span class="big_font">CÔNG TY TNHH THƯƠNG MẠI ĐIỆN TỬ VNSHOP</span>
         </p>
         <p class="center">
-          <span
-            >Địa chỉ: Tầng 12, số 17 Bà Huyện Thanh Quan, Phường 06, Quận 3,
-            Thành phố Hồ Chí Minh, Việt Nam</span
+          <span id="company_address"
+            >Địa chỉ: Tầng 12, số 17 Bà Huyện Thanh Quan, Phường Võ Thị Sáu,
+            Quận 3, Thành phố Hồ Chí Minh, Việt Nam</span
           >
         </p>
       </div>
@@ -128,14 +136,29 @@
             <td width="30%" class="tbl-left br-bl">Địa chỉ</td>
             <td width="70%" class="tbl-right">
               <span id="address"
-                >234 Nguyễn Thị Minh Khai, phường 4, Quận 9, TP. Hồ Chí
+                >234 Nguyễn Thị Minh Khai, phường 4, Quận 3, TP. Hồ Chí
                 Minh</span
               >
             </td>
           </tr>
         </table>
       </div>
-      <div></div>
+      <div>
+        <p></p>
+
+        <span class="title">Thông tin giao hàng</span>
+        <div style="padding-top: 4px;">
+          <span class="label">Kho xuất:</span>
+          <br />
+          <span class="content" id="from_address"></span>
+        </div>
+        <div style="padding-top: 4px;">
+          <span class="label">Khu vực giao hàng:</span>
+          <br />
+          <span class="content" id="shipping_area"></span>
+        </div>
+      </div>
+      <p></p>
     </div>
   </body>
 </html>
