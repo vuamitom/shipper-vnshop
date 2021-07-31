@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width" />
+    <title>
+      Nhân sự
+    </title>
+    <meta
+      property="og:image"
+      content="https://vnshop.vn/vnshop/logo_mobile.png"
+    />
+    <meta property="og:title" content="Nhân sự giao hàng" />
+    <meta property="og:description" content="Nhân sự giao hàng" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      function getUrlVars() {
+        var vars = [],
+          hash;
+        var hashes = window.location.href
+          .slice(window.location.href.indexOf("?") + 1)
+          .split("&");
+        for (var i = 0; i < hashes.length; i++) {
+          hash = hashes[i].split("=");
+          vars.push(hash[0]);
+          vars[hash[0]] = hash[1];
+        }
+        return vars;
+      }
+
+      function getData() {
+        var params = getUrlVars();
+        var id = params["id"];
+        $.getJSON(
+          "https://sheets.googleapis.com/v4/spreadsheets/1f3PsiE-Y9scAEzuS7nSXbJg4vkuLzR1x3xIWBXvqFz8/values/Sheet1!A:Z?key=AIzaSyCbsFHS0jN-MTYP2bVaVOKnWRyV0-DrH30",
+          function (result) {
+            $.each(result.values, function (i, item) {
+              if (i > 0) {
+                if (
+                  (typeof item[0] != "undefined") &
+                  (item[0] != "") &
+                  (item[0] == id)
+                ) {
+                  document.getElementById("name").innerHTML = item[1];
+                  document.getElementById("dob").innerHTML = item[2];
+                  document.getElementById("cmnd").innerHTML = item[3];
+                  document.getElementById("issue_date").innerHTML = item[4];
+                  document.getElementById("issue_place").innerHTML = item[5];
+                  document.getElementById("address").innerHTML = item[6];
+                  document.getElementById("number_plate").innerHTML = item[7];
+                  document.getElementById("image").src = item[8];
+                }
+              }
+            });
+          }
+        );
+      }
+      getData();
+    </script>
+  </head>
+  <body>
+    <div class="container" id="content">
+      <div style="text-align: center;">
+        <img
+          src="https://vnshop.vn/vnshop/logo_full_desktop.png"
+          height="60px"
+        />
+        <p class="center">
+          <span class="big_font">CÔNG TY TNHH THƯƠNG MẠI ĐIỆN TỬ VNSHOP</span>
+        </p>
+        <p class="center">
+          <span
+            >Địa chỉ: Tầng 12, số 17 Bà Huyện Thanh Quan, Phường 06, Quận 3,
+            Thành phố Hồ Chí Minh, Việt Nam</span
+          >
+        </p>
+      </div>
+      <div style="text-align: center;">
+        <img id="image" src="" height="200px" />
+        <p class="center">
+          <span id="name" class="big_font">Nguyen van A</span>
+          <br />
+          <span style="font-style: italic;">Nhân viên giao hàng</span>
+        </p>
+        <p class="center">
+          <span>Biển số xe: </span><span id="number_plate">51H2-423.24</span>
+        </p>
+      </div>
+
+      <div>
+        <p>
+          <span class="title">Thông tin cá nhân</span>
+        </p>
+        <table width="100%" class="info">
+          <tr class="border_bottom">
+            <td width="30%" class="tbl-left br-tl">Ngày sinh</td>
+            <td width="70%" class="tbl-right">
+              <span id="dob">11/11/1990</span>
+            </td>
+          </tr>
+          <tr class="border_bottom">
+            <td width="30%" class="tbl-left">CMND/CCCD</td>
+            <td width="70%" class="tbl-right">
+              <span id="cmnd">0123343424</span>
+            </td>
+          </tr>
+          <tr class="border_bottom">
+            <td width="30%" class="tbl-left">Ngày cấp</td>
+            <td width="70%" class="tbl-right">
+              <span id="issue_date">11/11/1990</span>
+            </td>
+          </tr>
+          <tr class="border_bottom">
+            <td width="30%" class="tbl-left">Nơi cấp</td>
+            <td width="70%" class="tbl-right">
+              <span id="issue_place">CA Hà Nội</span>
+            </td>
+          </tr>
+          <tr>
+            <td width="30%" class="tbl-left br-bl">Địa chỉ</td>
+            <td width="70%" class="tbl-right">
+              <span id="address"
+                >234 Nguyễn Thị Minh Khai, phường 4, Quận 9, TP. Hồ Chí
+                Minh</span
+              >
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div></div>
+    </div>
+  </body>
+</html>

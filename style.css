@@ -1,0 +1,53 @@
+.center {
+  text-align: center;
+}
+
+.tbl-left {
+  background-color: #ddd;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+.tbl-right {
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+
+.info {
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+
+tr.border_bottom td {
+  border-bottom: 1px solid #bbb;
+}
+
+tr.border_top td {
+  border-top: 1px solid #bbb;
+}
+
+.br-tl {
+  border-radius: 10px 0 0 0;
+}
+
+.br-bl {
+  border-radius: 0 0 0 10px;
+}
+
+.title {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+#number_plate {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.big_font {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
